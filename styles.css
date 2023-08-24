@@ -55,6 +55,16 @@ transform: translate(-50%, -50%);
 color: white;
 }
 
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+
+.light-mode {
+  background-color: white;
+  color: black;
+}
+
 .center {
   display: block;
   margin-left: auto;
