@@ -4,8 +4,8 @@ header {
     background: #026930;
     color: white;
     font-size: 35px;
-  
   }
+
 body {
     font-family: Arial, sans-serif;
     /* border: 2px solid powderblue; */
@@ -56,7 +56,7 @@ color: white;
 }
 
 .dark-mode {
-  background-color: black;
+  background-color: rgb(32, 28, 59);
   color: white;
 }
 
