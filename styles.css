@@ -36,20 +36,21 @@ body {
     /* border: 2px solid powderblue; */
 }
 
-b{
-  position: absolute;
+
+/* a is hyperlinks, styles for the links unless overriden */
+a{
+  /* position: absolute;
    top: 60%; 
-   left: 90%; 
-  padding: 5px;
-  font-size: 10px;
+   left: 90%;  */
+  /* padding: 5px; */
+  font-size: 15px;
   font-family: Arial, Helvetica, sans-serif;
   text-decoration: none;
   color: #691212;
-  border-top: 2px solid #2b103d;
-  border-bottom: 2px solid #2f9400;
-  letter-spacing: 2px;
+  /* border-top: 2px solid #2b103d;
+  border-bottom: 2px solid #2f9400; */
+  /* letter-spacing: 2px; */
   transition: .3s;
-
 }
 
 
@@ -65,7 +66,7 @@ body, html {
 background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("img/kabaddi1.jpg");
 
 /* Set a specific height */
-height: 50%;
+height: 40%;
 
 /* Position and center the image to scale nicely on all screens*/
 background-position: center;
@@ -102,6 +103,7 @@ color: white;
   width: 100%;
 }
 
-b:hover{
-  letter-spacing: 10px;
+/* spacing effect after hovering over links */
+a:hover{
+  letter-spacing: 1px;
 }
