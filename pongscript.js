@@ -1,17 +1,20 @@
 
-var canvas = document.getElementById("board");
-var ctx = canvas.getContext("2d");
-var x = canvas.width / 2;
-var y = canvas.height - 30;
-var dx = 4;
-var dy = -4;
-var ballRadius = 10;
+function setup() { 
+    var canvas = document.getElementById("board");
+    var ctx = canvas.getContext("2d");
+    var x = canvas.width / 2;
+    var y = canvas.height - 30;
+    var dx = 4;
+    var dy = -4;
+    var ballRadius = 10;
+    
+    // varibles declared to handle the movement of paddles
+    var leftUpPressed = false;
+    var leftDownPressed = false;
+    var rightUpPressed = false;
+    var rightDownPressed = false;
+}
 
-// varibles declared to handle the movement of paddles
-var leftUpPressed = false;
-var leftDownPressed = false;
-var rightUpPressed = false;
-var rightDownPressed = false;
 
 function DownHandler(e) {
     if (e.keyCode == 90) {
@@ -151,6 +154,7 @@ function Scene() {
 }
 
 function draw() {
+    setup();
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     Scores();
     Scene();
