@@ -41,11 +41,11 @@ h1{
     outline: 0;
     background: #ebfffc;
     color: #555;
-    padding: 10px 25px;
-    height: 60px;
-    border-radius: 30px;
+    padding: 10px 10px;
+    height: 55px;
+    border-radius: 60px;
     flex: 1;
-    margin-right: 16px;
+    margin-right: px;
     font-size: 18px;
 }
 
@@ -60,5 +60,7 @@ h1{
 }
 
 .search button img{
-    width: 16px;
+    width: 15px;
+    height: 15px;
+    
 }
