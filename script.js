@@ -87,5 +87,5 @@ function lightMode() {
 function getRandomQuote() {
     const randomIndex = Math.floor(Math.random() * quotes.length);
     const quoteElement = document.getElementById("quote");
-    quoteElement.textContent = quotes[randomIndex];
+    quoteElement.textContent = quotes[1];
 }
