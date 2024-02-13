@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Popup with Sound Effects</title>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const popup = document.getElementById("popup");
+    const acceptButton = document.getElementById("accept");
+    const rejectButton = document.getElementById("reject");
+
+    // Function to play applause sound effect
+    function playApplauseSound() {
+        const applauseSound = new Audio("applause.mp3");
+        applauseSound.play();
+    }
+
+    // Function to play boo sound effect
+    function playBooSound() {
+        const booSound = new Audio("boo.mp3");
+        booSound.play();
+    }
+
+    // Show the popup
+    popup.style.display = "block";
+
+    // Event listener for accept button
+    acceptButton.addEventListener("click", function() {
+        playApplauseSound();
+        popup.style.display = "none";
+    });
+
+    // Event listener for reject button
+    rejectButton.addEventListener("click", function() {
+        playBooSound();
+        popup.style.display = "none";
+    });
+
+    // Event listener for mouseover on accept button
+    acceptButton.addEventListener("mouseover", playApplauseSound);
+
+    // Event listener for mouseover on reject button
+    rejectButton.addEventListener("mouseover", playBooSound);
+});
+</script>
+</head>
+<body>
+
+<div id="popup" style="display: none;">
+    <p>Do you accept?</p>
+    <button id="accept">Accept</button>
+    <button id="reject">Reject</button>
+</div>
+
+</body>
+</html>
