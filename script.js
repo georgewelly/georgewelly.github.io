@@ -24,9 +24,9 @@ function lightMode() {
 
 function getRandomQuote() {
     const randomIndex = Math.floor(Math.random() * quotes.length);
-    const quoteElement = document.getElementById("quote");
+    // const quoteElement = document.getElementById("quote");
     quote = quotes[randomIndex];
-    quoteElement.textContent = quote;
+    // quoteElement.textContent = quote;
     const speechBubble = document.querySelector('.speech-bubble');
-    speechBubble.textContent = text;
+    speechBubble.textContent = quote;
 }

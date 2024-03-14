@@ -208,12 +208,13 @@ button {
 
 .speech-bubble {
   position: absolute;
-  font-size: 10px;
+  font-size: 1vw;
   background-color: #fff;
   padding: 10px;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  max-width: 2000px; /* Adjust width as needed */
+  width: 150px;
+  height: 45px; /* Adjust width as needed */
   bottom: 90%; /* Adjust distance from Clippy */
   right: 90%; /* Adjust distance from Clippy */
 }
