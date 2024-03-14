@@ -193,3 +193,41 @@ button {
   top: 0;
   border-radius: 10px;
 }
+
+.clippy {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 100px; /* Adjust width and height as needed */
+  height: 100px;
+  background-image: url('files/clippy.gif'); /* Replace 'clippy.gif' with your image */
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 9999; /* Ensure it's above other content */
+}
+
+.speech-bubble {
+  position: absolute;
+  font-size: 10px;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  max-width: 2000px; /* Adjust width as needed */
+  bottom: 90%; /* Adjust distance from Clippy */
+  right: 90%; /* Adjust distance from Clippy */
+}
+
+/* Triangle or arrow shape for speech bubble */
+/* .speech-bubble::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 10px 0 10px;
+  border-color: #fff transparent transparent transparent;
+  bottom: -10px;
+  right: 50%;
+  transform: translateX(50%);
+} */
