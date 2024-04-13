@@ -64,7 +64,7 @@ html {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("img/kabaddi1.jpg");
 
   /* Set a specific height */
-  height: 25%;
+  height: 30%;
 
   /* Position and center the image to scale nicely on all screens*/
   background-position: center;
@@ -96,16 +96,10 @@ a:hover {
   letter-spacing: 1px;
 }
 
-.container {
-  text-align: center;
-}
-
 button {
   padding: 10px 20px;
   font-size: 16px;
-  cursor: pointer;
-}
-
+  cursor: pointer;}
 .clippy {
   position: fixed;
   bottom: 20px;
