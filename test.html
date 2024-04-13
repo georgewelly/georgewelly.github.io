@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Company Name</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-sans">
+    <nav class="bg-gray-800 text-white py-4">
+        <ul class="flex justify-center">
+            <li class="mx-4"><a href="#" class="hover:text-yellow-300">Home</a></li>
+            <li class="mx-4"><a href="#" class="hover:text-yellow-300">Services</a></li>
+            <li class="mx-4"><a href="#" class="hover:text-yellow-300">About Us</a></li>
+            <li class="mx-4"><a href="#" class="hover:text-yellow-300">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="slider w-3/4 mx-auto my-12 relative overflow-hidden">
+        <div class="testimonial absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-300">
+            <p class="text-center text-lg">"I never felt safer than with [Your Company Name]! They truly prioritize their clients' safety." - John Doe</p>
+        </div>
+        <div class="testimonial absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-300">
+            <p class="text-center text-lg">"Their IT services are top-notch! My business has never run smoother since partnering with them." - Jane Smith</p>
+        </div>
+        <div class="testimonial absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-300">
+            <p class="text-center text-lg">"The educational programs offered are both informative and engaging. Highly recommend!" - Emily Johnson</p>
+        </div>
+    </div>
+
+    <div class="features flex justify-center items-center bg-white py-12">
+        <div class="feature mx-8 p-6 bg-gray-100 rounded-lg shadow-lg transform transition-transform hover:-translate-y-2">
+            <h3 class="text-xl font-semibold mb-4">Interactive Training Simulations</h3>
+            <p>Experience realistic scenarios to enhance your security skills.</p>
+        </div>
+        <div class="feature mx-8 p-6 bg-gray-100 rounded-lg shadow-lg transform transition-transform hover:-translate-y-2">
+            <h3 class="text-xl font-semibold mb-4">24/7 Monitoring Solutions</h3>
+            <p>We keep an eye on your premises round the clock for ultimate peace of mind.</p>
+        </div>
+        <div class="feature mx-8 p-6 bg-gray-100 rounded-lg shadow-lg transform transition-transform hover:-translate-y-2">
+            <h3 class="text-xl font-semibold mb-4">Customized Security Plans</h3>
+            <p>Tailored security solutions to fit your unique needs and budget.</p>
+        </div>
+    </div>
+
+    <div class="contact-form bg-gray-800 text-white py-12">
+        <h2 class="text-3xl font-semibold mb-8 text-yellow-300 text-center">Get in Touch</h2>
+        <form class="w-3/4 mx-auto">
+            <input type="text" placeholder="Your Name" class="w-full bg-gray-900 text-white rounded-lg px-4 py-2 mb-4">
+            <input type="text" placeholder="Your Email" class="w-full bg-gray-900 text-white rounded-lg px-4 py-2 mb-4">
+            <textarea placeholder="Your Message" class="w-full bg-gray-900 text-white rounded-lg px-4 py-2 mb-4"></textarea>
+            <input type="submit" value="Send Message" class="w-full bg-yellow-300 text-gray-900 rounded-lg px-4 py-2 cursor-pointer hover:bg-yellow-400 transition-colors duration-300">
+        </form>
+    </div>
+</body>
+</html>
