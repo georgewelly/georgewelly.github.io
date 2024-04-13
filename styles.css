@@ -1,10 +1,10 @@
 header {
-    padding: 60px;
-    text-align: center;
-    background: #026930;
-    color: white;
-    font-size: 35px;
-  }
+  padding: 60px;
+  text-align: center;
+  background: #026930;
+  color: white;
+  font-size: 35px;
+}
 
 /* TOP NAVIGATION BAR */
 .topnav {
@@ -27,18 +27,18 @@ header {
 }
 
 .topnav a.active {
-  background-color: #04AA6D;
+  background-color: #e0e0e070;
   color: white;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    /* border: 2px solid powderblue; */
+  font-family: Arial, sans-serif;
+  /* border: 2px solid powderblue; */
 }
 
 
 /* a is hyperlinks, styles for the links unless overriden */
-a{
+a {
   /* position: absolute;
    top: 60%; 
    left: 90%;  */
@@ -53,46 +53,44 @@ a{
   transition: .3s;
 }
 
-
-
-
-body, html {
+body,
+html {
   height: 100%;
 }
 
 /* The hero image */
 .hero-image {
-/* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
-background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("img/kabaddi1.jpg");
+  /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("img/kabaddi1.jpg");
 
-/* Set a specific height */
-height: 40%;
+  /* Set a specific height */
+  height: 25%;
 
-/* Position and center the image to scale nicely on all screens*/
-background-position: center;
-background-repeat: no-repeat;
-background-size: cover;
-position:  relative;
+  /* Position and center the image to scale nicely on all screens*/
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 }
 
 /* Place text in the middle of the image*/
 .hero-text {
-text-align: center;
-font-family:  Cambria, sans-serif;
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-color: white;
+  text-align: center;
+  font-family: Cambria, sans-serif;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
 }
 
 .dark-mode {
-  background-color: black;
+  background-color: rgb(56, 56, 56);
   color: white;
 }
 
 .light-mode {
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   color: black;
 }
 
@@ -104,7 +102,7 @@ color: white;
 }
 
 /* spacing effect after hovering over links */
-a:hover{
+a:hover {
   letter-spacing: 1px;
 }
 
@@ -118,117 +116,50 @@ button {
   cursor: pointer;
 }
 
-.bn5 {
-  padding: 0.6em 2em;
-  border: none;
-  outline: none;
-  color: rgb(255, 255, 255);
-  background: #111;
-  cursor: pointer;
-  position: relative;
-  z-index: 0;
-  border-radius: 10px;
-}
 
-.bn5:before {
-  content: "";
-  background: linear-gradient(
-    45deg,
-    #ff0000,
-    #ff7300,
-    #fffb00,
-    #48ff00,
-    #00ffd5,
-    #002bff,
-    #7a00ff,
-    #ff00c8,
-    #ff0000
-  );
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  background-size: 400%;
-  z-index: -1;
-  filter: blur(5px);
-  width: calc(100% + 4px);
-  height: calc(100% + 4px);
-  animation: glowingbn5 20s linear infinite;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  border-radius: 10px;
-}
 
 @keyframes glowingbn5 {
   0% {
     background-position: 0 0;
   }
+
   50% {
     background-position: 400% 0;
   }
+
   100% {
     background-position: 0 0;
   }
-}
-
-.bn5:active {
-  color: #000;
-}
-
-.bn5:active:after {
-  background: transparent;
-}
-
-.bn5:hover:before {
-  opacity: 1;
-}
-
-.bn5:after {
-  z-index: -1;
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: #191919;
-  left: 0;
-  top: 0;
-  border-radius: 10px;
 }
 
 .clippy {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  width: 100px; /* Adjust width and height as needed */
+  width: 100px;
+  /* Adjust width and height as needed */
   height: 100px;
-  background-image: url('files/clippy.gif'); /* Replace 'clippy.gif' with your image */
+  background-image: url('files/clippy.gif');
+  /* Replace 'clippy.gif' with your image */
   background-size: contain;
   background-repeat: no-repeat;
-  z-index: 9999; /* Ensure it's above other content */
+  z-index: 9999;
+  /* Ensure it's above other content */
 }
 
 .speech-bubble {
   position: absolute;
   font-size: 1vw;
-  background-color: #fff;
+  background-color: #ffffff;
+  color:black;
   padding: 10px;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   width: 100%;
-  height: 45px; /* Adjust width as needed */
-  bottom: 90%; /* Adjust distance from Clippy */
-  right: 90%; /* Adjust distance from Clippy */
+  height: 45px;
+  /* Adjust width as needed */
+  bottom: 90%;
+  /* Adjust distance from Clippy */
+  right: 90%;
+  /* Adjust distance from Clippy */
 }
-
-/* Triangle or arrow shape for speech bubble */
-/* .speech-bubble::before {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 10px 10px 0 10px;
-  border-color: #fff transparent transparent transparent;
-  bottom: -10px;
-  right: 50%;
-  transform: translateX(50%);
-} */

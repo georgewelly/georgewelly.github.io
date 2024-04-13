@@ -9,8 +9,31 @@
             background-color: lightblue;
         }
     </style>
+    
 </head>
 <body>
+    <div id="cookieBanner">
+        <p>This website uses cookies to ensure you get the best experience on our website.</p>
+        <button id="acceptButton">Accept</button>
+        <button id="rejectButton">Reject</button>
+    </div>
     
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const banner = document.getElementById("cookieBanner");
+            const acceptButton = document.getElementById("acceptButton");
+            const rejectButton = document.getElementById("rejectButton");
+    
+            acceptButton.addEventListener("click", function() {
+                // Set cookie or perform action when user accepts cookies
+                banner.style.display = "none";
+            });
+    
+            rejectButton.addEventListener("click", function() {
+                // Perform action when user rejects cookies
+                banner.style.display = "none";
+            });
+        });
+    </script>
 </body>
 </html>
