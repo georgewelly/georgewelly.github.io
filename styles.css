@@ -84,16 +84,6 @@ html {
   color: white;
 }
 
-.dark-mode {
-  background-color: rgb(56, 56, 56);
-  color: white;
-}
-
-.light-mode {
-  background-color: rgb(255, 255, 255);
-  color: black;
-}
-
 .center {
   display: block;
   margin-left: auto;
@@ -114,22 +104,6 @@ button {
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
-}
-
-
-
-@keyframes glowingbn5 {
-  0% {
-    background-position: 0 0;
-  }
-
-  50% {
-    background-position: 400% 0;
-  }
-
-  100% {
-    background-position: 0 0;
-  }
 }
 
 .clippy {
