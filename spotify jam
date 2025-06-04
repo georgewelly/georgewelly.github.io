@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Math Gate</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; margin-top: 50px; }
+    #secretImage { display: none; margin-top: 20px; }
+    input, button { padding: 10px; font-size: 16px; }
+  </style>
+</head>
+<body>
+  <h2>Math Unlock 🔓</h2>
+  <p>Solve this to get the image:</p>
+  <p><strong>x² - 5x + 6 = 0</strong></p>
+  <input type="text" id="answerInput" placeholder="Your answer (e.g. 2 or 3)">
+  <button onclick="checkAnswer()">Unlock</button>
+
+  <div id="secretImage">
+    <p>Nice work, brainiac 🧠💥</p>
+    <img src="img/0406" alt="Secret Image" style="max-width: 90%;">
+  </div>
+
+  <script>
+    function checkAnswer() {
+      const input = document.getElementById("answerInput").value.trim();
+      if (input === "2" || input === "3") {
+        document.getElementById("secretImage").style.display = "block";
+      } else {
+        alert("Nah, that ain’t it. Try again!");
+      }
+    }
+  </script>
+</body>
+</html>
