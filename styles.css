@@ -132,3 +132,16 @@ button {
   right: 90%;
   /* Adjust distance from Clippy */
 }
+
+.spotify-box {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 9998; /* just under Clippy */
+    width: 300px;
+    height: 80px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #000; /* optional: looks cleaner while loading */
+}
