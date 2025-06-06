@@ -39,45 +39,42 @@
     </noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <header>
-        <div class="topnav">
-            <a class="active" href="georgewelly.github.io">Home</a>
-            <a href="weather.html">Weather App</a>
-            <a href="cookie.html"><i class="fa-solid fa-cookie-bite"></i></a>
-            <a href="https://github.com/georgewelly" target="_blank" rel="noopener noreferrer">
-                Github <i class="fa-brands fa-github"></i>
-            </a>
-            <a href="upriseuptime.html">Uprise Uptime (Status Checker) <i class="fa-solid fa-signal"></i></a>
-        </div>
-    </header>
+    <!-- Keep your original topnav structure -->
+    <div class="topnav">
+        <a class="active" href="georgewelly.github.io">Home</a>
+        <a href="weather.html">Weather App</a>
+        <a href="cookie.html"><i class="fa-solid fa-cookie-bite"></i></a>
+        <a href="https://github.com/georgewelly" target="_blank" rel="noopener noreferrer">
+            Github <i class="fa-brands fa-github"></i>
+        </a>
+        <a href="upriseuptime.html">Uprise Uptime (Status Checker) <i class="fa-solid fa-signal"></i></a>
+    </div>
 
-    <main>
-        <div class="hero-image">
-            <div class="hero-text">
-                <h1>George Wellington</h1>
-                <p>BSc Computer Science</p>
-                <button onclick="window.location.href='files/GeorgeWellingtonCVDelta.pdf';">
-                    My CV
-                </button>
-            </div>
+    <!-- Hero image stays the same -->
+    <div class="hero-image">
+        <div class="hero-text">
+            <h1>George Wellington</h1>
+            <p>BSc Computer Science</p>
+            <button onclick="window.location.href='files/GeorgeWellingtonCVDelta.pdf';">
+                My CV
+            </button>
         </div>
+    </div>
 
-        <div class="clippy" onclick="getRandomQuote()" role="button" tabindex="0">
-            <div class="speech-bubble">
-                Hello! I'm Clippy.
-            </div>
+    <!-- Clippy stays fixed in bottom-right -->
+    <div class="clippy" onclick="getRandomQuote()" role="button" tabindex="0">
+        <div class="speech-bubble">
+            Hello! I'm Clippy.
         </div>
+    </div>
 
-        <section style="text-align: center; margin-top: 50px;">
-            <h2>Now Listening</h2>
-            <div style="display: flex; justify-content: center; margin-bottom: 40px;">
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/6dVIqQ8qmQ5GBnJ9shOYGE?utm_source=generator"
-                    width="80%" height="352" frameBorder="0" allowfullscreen=""
-                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
-                </iframe>
-            </div>
-        </section>
-    </main>
+    <!-- Spotify box fixed in bottom-left -->
+    <div class="spotify-box">
+        <iframe style="border:none;" src="https://open.spotify.com/embed/album/6dVIqQ8qmQ5GBnJ9shOYGE?utm_source=generator"
+            width="100%" height="100%" frameBorder="0" allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
+        </iframe>
+    </div>
 
 </body>
 
