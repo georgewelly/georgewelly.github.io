@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Star Unlock 🌟</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    .stars {
+      display: inline-block;
+      direction: rtl;
+      font-size: 40px;
+      unicode-bidi: bidi-override;
+    }
+    .stars input {
+      display: none;
+    }
+    .stars label {
+      color: #ccc;
+      cursor: pointer;
+    }
+    .stars input:checked ~ label,
+    .stars label:hover,
+    .stars label:hover ~ label {
+      color: gold;
+    }
+    #secretImage {
+      display: none;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Rate This Experience 🌠</h2>
+  <p>Select exactly <strong>1.5 stars</strong> to unlock the goods.</p>
+
+  <div class="stars">
+    <!-- Half stars use a trick with ::before or label overlap. Here’s the HTML way: -->
+    <input type="radio" id="star5" name="rating" value="5"><label for="star5">★</label>
+    <input type="radio" id="star4half" name="rating" value="4.5"><label for="star4half">☆</label>
+    <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
+    <input type="radio" id="star3half" name="rating" value="3.5"><label for="star3half">☆</label>
+    <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
+    <input type="radio" id="star2half" name="rating" value="2.5"><label for="star2half">☆</label>
+    <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
+    <input type="radio" id="star1half" name="rating" value="1.5"><label for="star1half">☆</label>
+    <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
+    <input type="radio" id="star0half" name="rating" value="0.5"><label for="star0half">☆</label>
+  </div>
+
+  <br><br>
+  <button onclick="checkRating()">Unlock</button>
+
+  <div id="secretImage">
+    <p>🎉 You nailed the exact vibe 😭🙌</p>
+    <p>Image is also a link, go get your daily jam:</p>
+    <a href="https://spotify.link/1WTF1PRTWTb" target="_blank" rel="noopener noreferrer">
+      <img src="https://georgewelly.github.io/img/0506.png" alt="Secret Image" style="max-width: 90%;">
+    </a>
+  </div>
+
+  <script>
+    function checkRating() {
+      const rating = document.querySelector('input[name="rating"]:checked');
+      if (rating && rating.value === "1.5") {
+        document.getElementById("secretImage").style.display = "block";
+      } else {
+        alert("Nope, not quite! Gotta hit exactly 1.5 stars ⭐👀");
+      }
+    }
+  </script>
+</body>
+</html>
