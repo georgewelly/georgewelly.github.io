@@ -24,9 +24,25 @@ function lightMode() {
 
 function getRandomQuote() {
     const randomIndex = Math.floor(Math.random() * quotes.length);
-    // const quoteElement = document.getElementById("quote");
     quote = quotes[randomIndex];
-    // quoteElement.textContent = quote;
     const speechBubble = document.querySelector('.speech-bubble');
     speechBubble.textContent = quote;
 }
+
+// ADD THIS: Clippy toggle
+document.addEventListener('DOMContentLoaded', function() {
+    const clippy = document.querySelector('.clippy');
+    const toggleButton = document.getElementById('toggle-clippy');
+
+    if (clippy && toggleButton) { // safety check in case either element doesn't exist
+        toggleButton.addEventListener('click', function() {
+            clippy.classList.toggle('hidden');
+
+            if (clippy.classList.contains('hidden')) {
+                toggleButton.textContent = 'Show Clippy';
+            } else {
+                toggleButton.textContent = 'Hide Clippy';
+            }
+        });
+    }
+});
