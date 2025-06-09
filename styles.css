@@ -33,7 +33,6 @@ header {
 
 body {
   font-family: Arial, sans-serif;
-  /* border: 2px solid powderblue; */
 }
 
 
@@ -53,10 +52,12 @@ a {
   transition: .3s;
 }
 
-body,
-html {
-  height: 100%;
-  background-color: #ffffff;
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #4e4b64; /* soft grey instead of stark white */
+    font-family: Arial, sans-serif;
 }
 
 /* The hero image */
@@ -101,10 +102,13 @@ button {
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;}
+
+
+
 .clippy {
   position: fixed;
   bottom: 20px;
-  right: 20px;
+  right: 5%;
   width: 100px;
   /* Adjust width and height as needed */
   height: 100px;
