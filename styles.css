@@ -124,6 +124,16 @@ button {
   /* Ensure it's above other content */
 }
 
+.about-me {
+  width: 600px;
+  height: 150px;
+  background-color: #f0f0f062 !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  font-size: 14px;
+}
+
 .speech-bubble {
   position: absolute;
   font-size: 1vw;
