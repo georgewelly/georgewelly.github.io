@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Today’s Jam</title>
+  <meta name="color-scheme" content="light dark" />
+  <style>
+    :root { --fg:#0f172a; --muted:#64748b; --line:#e5e7eb; --bg:#f8fafc; }
+    @media (prefers-color-scheme: dark) {
+      :root { --fg:#e5e7eb; --muted:#94a3b8; --line:#1f2937; --bg:#0b1220; }
+    }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color:var(--fg); background:var(--bg); font-size: 18px; } /* bigger base font */
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 36px; } /* increased max-width and padding */
+    .card { background: #fff; border:1px solid var(--line); border-radius: 20px; padding: 28px; box-shadow: 0 8px 30px rgba(0,0,0,.06); }
+    h1 { font-size: clamp(28px, 4vw, 42px); margin: 0 0 16px; color: #005f6b; } /* blue override */
+    p { margin: 8px 0; }
+    .muted { color: var(--muted); font-size: 0.95rem; }
+    .row { display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+    .pill { display:inline-flex; align-items:center; gap:8px; border:1px solid var(--line); border-radius: 999px; padding: 10px 14px; background: #fff; font-size: 1rem; }
+    a.link { word-break: break-all; text-decoration: none; color: #2563eb; }
+    button { padding:.8rem 1.2rem; border:1px solid #334155; background:#334155; color:#fff; border-radius:10px; cursor:pointer; font-size: 1rem; }
+    button.secondary { background:#fff; color:#334155; }
+    #qr { display:flex; justify-content:center; align-items:center; min-height: 400px; } /* bigger QR space */
+    .grid { display:grid; grid-template-columns: 1fr; gap: 20px; }
+    @media (min-width: 900px) { .grid { grid-template-columns: 1fr 1fr; } }
+    iframe { width: 100%; border:0; }
+    footer { margin-top: 40px; text-align: center; font-size: 0.7rem; color: var(--muted); }
+    footer a { color: inherit; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>Join today’s Jam</h1>
+      <p class="muted">Open the link in Spotify or scan the QR to join.</p>
+
+      <div class="row" style="margin:12px 0 18px;">
+        <span id="jamLinkPill" class="pill" hidden>
+          <a id="jamLink" class="link" href="#" target="_blank" rel="noopener">Loading…</a>
+        </span>
+        <button id="copyBtn" class="secondary">Copy link</button>
+        <button id="refreshBtn">Refresh</button>
+        <span id="status" class="muted"></span>
+      </div>
+
+      <div class="grid">
+        <div id="qr"></div>
+        <div>
+          <h1 style="margin:0 0 8px;">work playlist</h1>
+          <p class="muted" style="margin:0 0 8px;">For the love of god please add to this playlist.</p>
+          <iframe
+            style="border-radius:12px"
+            src="https://open.spotify.com/embed/playlist/75llZDXhzi1l46pTW9SEOq?utm_source=generator"
+            height="400"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <a href="https://open.spotify.com/user/1191093385?si=26efe68066c04057" target="_blank" rel="noopener">hehe</a>
+    </footer>
+  </div>
+
+  <!-- QR generator -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    const TXT_PATH = "./todaysjam.txt";
+
+    const qrEl = document.getElementById('qr');
+    const statusEl = document.getElementById('status');
+    const linkEl = document.getElementById('jamLink');
+    const pillEl = document.getElementById('jamLinkPill');
+    const copyBtn = document.getElementById('copyBtn');
+    const refreshBtn = document.getElementById('refreshBtn');
+
+    function isURL(s) { try { new URL(s); return true; } catch { return false; } }
+
+    function render(url) {
+      if (!isURL(url)) {
+        statusEl.textContent = "Invalid or empty Jam link.";
+        pillEl.hidden = true;
+        qrEl.innerHTML = "";
+        return;
+      }
+      qrEl.innerHTML = "";
+      new QRCode(qrEl, { text: url, width: 400, height: 400, correctLevel: QRCode.CorrectLevel.M });
+      linkEl.href = url;
+      linkEl.textContent = url;
+      pillEl.hidden = false;
+      statusEl.textContent = "Loaded current Jam link.";
+    }
+
+    async function loadJam() {
+      statusEl.textContent = "Loading…";
+      try {
+        const res = await fetch(TXT_PATH + "?t=" + Date.now(), { cache: "no-store" });
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        const txt = (await res.text()).trim();
+        render(txt);
+      } catch (e) {
+        statusEl.textContent = "Could not load todaysjam.txt";
+        pillEl.hidden = true;
+        qrEl.innerHTML = "";
+      }
+    }
+
+    copyBtn.onclick = async () => {
+      const url = linkEl.href;
+      if (!url) return;
+      try {
+        await navigator.clipboard.writeText(url);
+        statusEl.textContent = "Link copied.";
+      } catch { statusEl.textContent = "Copy failed."; }
+    };
+
+    refreshBtn.onclick = loadJam;
+
+    loadJam();
+  </script>
+</body>
+</html>
