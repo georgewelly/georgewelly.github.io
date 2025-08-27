@@ -1,1 +1,2 @@
-FILE_NAM
+keeps the window open until you press a key
+
