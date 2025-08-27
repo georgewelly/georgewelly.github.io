@@ -11,10 +11,10 @@
       :root { --fg:#e5e7eb; --muted:#94a3b8; --line:#1f2937; --bg:#0b1220; }
     }
     * { box-sizing: border-box; }
-    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color:var(--fg); background:var(--bg); font-size: 18px; } /* bigger base font */
-    .wrap { max-width: 1080px; margin: 0 auto; padding: 36px; } /* increased max-width and padding */
+    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color:var(--fg); background:var(--bg); font-size: 18px; }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 36px; }
     .card { background: #fff; border:1px solid var(--line); border-radius: 20px; padding: 28px; box-shadow: 0 8px 30px rgba(0,0,0,.06); }
-    h1 { font-size: clamp(28px, 4vw, 42px); margin: 0 0 16px; color: #005f6b; } /* blue override */
+    h1 { font-size: clamp(28px, 4vw, 42px); margin: 0 0 16px; color: #005f6b; }
     p { margin: 8px 0; }
     .muted { color: var(--muted); font-size: 0.95rem; }
     .row { display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
@@ -22,7 +22,7 @@
     a.link { word-break: break-all; text-decoration: none; color: #2563eb; }
     button { padding:.8rem 1.2rem; border:1px solid #334155; background:#334155; color:#fff; border-radius:10px; cursor:pointer; font-size: 1rem; }
     button.secondary { background:#fff; color:#334155; }
-    #qr { display:flex; justify-content:center; align-items:center; min-height: 400px; } /* bigger QR space */
+    #qr { display:flex; justify-content:center; align-items:center; min-height: 400px; }
     .grid { display:grid; grid-template-columns: 1fr; gap: 20px; }
     @media (min-width: 900px) { .grid { grid-template-columns: 1fr 1fr; } }
     iframe { width: 100%; border:0; }
@@ -43,7 +43,7 @@
         </span>
         <button id="copyBtn" class="secondary">Copy link</button>
         <button id="refreshBtn">Refresh</button>
-        <span id="status" class="muted"></span>
+        <span id="status" class="muted" role="status" aria-live="polite"></span>
       </div>
 
       <div class="grid">
@@ -51,7 +51,19 @@
         <div>
           <h1 style="margin:0 0 8px;">work playlist</h1>
           <p class="muted" style="margin:0 0 8px;">For the love of god please add to this playlist.</p>
+
+          <!-- New link -->
+          <p style="margin:0 0 12px;">
+            <a href="https://open.spotify.com/playlist/75llZDXhzi1l46pTW9SEOq?si=GvDtuB2ZSFqrjyRh4rZxcQ&pt=44218a370954c374e9e6922f7ebbc256&pi=hfLxXprCR-CUt" 
+               target="_blank" 
+               rel="noopener"
+               style="color:#2563eb; text-decoration:none; font-weight:500;">
+              Join collaborative playlist
+            </a>
+          </p>
+
           <iframe
+            title="Spotify collaborative playlist: work playlist"
             style="border-radius:12px"
             src="https://open.spotify.com/embed/playlist/75llZDXhzi1l46pTW9SEOq?utm_source=generator"
             height="400"
@@ -80,7 +92,23 @@
 
     function isURL(s) { try { new URL(s); return true; } catch { return false; } }
 
-    function render(url) {
+    // Formats a Date into: Today 14:03, Yesterday 21:48, or Mon, 19 Aug 11:10
+    function formatTimestamp(date) {
+      const now = new Date();
+      const d = new Date(date);
+      const isToday = d.toDateString() === now.toDateString();
+      const yday = new Date(now); yday.setDate(now.getDate() - 1);
+      const isYesterday = d.toDateString() === yday.toDateString();
+
+      const time = d.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' });
+
+      if (isToday) return `Today ${time}`;
+      if (isYesterday) return `Yesterday ${time}`;
+      const dayLabel = d.toLocaleDateString(undefined, { weekday: 'short', day: '2-digit', month: 'short' });
+      return `${dayLabel} ${time}`;
+    }
+
+    function render(url, fetchedAt = new Date()) {
       if (!isURL(url)) {
         statusEl.textContent = "Invalid or empty Jam link.";
         pillEl.hidden = true;
@@ -92,7 +120,7 @@
       linkEl.href = url;
       linkEl.textContent = url;
       pillEl.hidden = false;
-      statusEl.textContent = "Loaded current Jam link.";
+      statusEl.textContent = "Last updated: " + formatTimestamp(fetchedAt);
     }
 
     async function loadJam() {
@@ -101,7 +129,7 @@
         const res = await fetch(TXT_PATH + "?t=" + Date.now(), { cache: "no-store" });
         if (!res.ok) throw new Error("HTTP " + res.status);
         const txt = (await res.text()).trim();
-        render(txt);
+        render(txt, new Date()); // display with fetch time
       } catch (e) {
         statusEl.textContent = "Could not load todaysjam.txt";
         pillEl.hidden = true;
@@ -111,11 +139,13 @@
 
     copyBtn.onclick = async () => {
       const url = linkEl.href;
-      if (!url) return;
+      if (!url || url === "#") return;
       try {
         await navigator.clipboard.writeText(url);
-        statusEl.textContent = "Link copied.";
-      } catch { statusEl.textContent = "Copy failed."; }
+        statusEl.textContent = "Link copied. Last updated time unchanged.";
+      } catch {
+        statusEl.textContent = "Copy failed.";
+      }
     };
 
     refreshBtn.onclick = loadJam;

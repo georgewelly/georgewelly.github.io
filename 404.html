@@ -17,6 +17,21 @@
       height: 100vh;
       text-align: center;
       padding: 1rem;
+      position: relative;
+    }
+    .home-link {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      text-decoration: none;
+      color: #333;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .home-link:hover {
+      color: #000;
     }
     img {
       max-width: 300px;
@@ -32,11 +47,18 @@
       font-size: 1.1rem;
       color: #555;
     }
+    .home-icon {
+      font-size: 1.2rem;
+    }
   </style>
 </head>
 <body>
+  <a href="https://georgewelly.github.io" class="home-link">
+    <span class="home-icon">🏠</span> Home
+  </a>
+
   <h1>404 — Page Not Found</h1>
   <p>Sorry, let George know there's a problem.</p>
-  <img src="img/literallyme.jpg" alt="Pointing at the problem" />
+  <img src="img/literally_me.jpg" alt="Pointing at the problem" />
 </body>
 </html>
