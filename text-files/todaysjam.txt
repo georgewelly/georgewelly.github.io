@@ -1,1 +1,1 @@
-powershell
+"C:\Users\George Wellington\Documents\workspace\georgewelly.github.io\bash-scripts\dailyjam.ps1"
