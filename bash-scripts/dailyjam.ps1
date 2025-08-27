@@ -8,7 +8,7 @@ $line = Get-Clipboard
 Set-Content $fileName $line
 
 git add $fileName
-git commit -m ("Updated jam text " + (Get-Date -Format "yyyy-MM-dd"))
+git commit -m ("Updated jam text " + (Get-Date -Format "yyyy-MM-dd HH:mm:ss"))
 git push
 
 
