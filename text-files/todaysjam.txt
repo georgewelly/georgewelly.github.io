@@ -1,1 +1,6 @@
-https://spotify.link/HJ5X2AbkiXb
+INSERT INTO `linen-waters-380615.cdb_google_analytics.client_data`
+(clientId, grantDataAccess)
+VALUES
+('tf1', TRUE),
+('bcc1', TRUE);
+
